@@ -1,0 +1,26 @@
+{
+  "editor.formatOnSave": true,
+  "javascript.format.enable": false,
+  // "eslint.enable": true,
+  "eslint.options": {
+    "extensions": [".js", ".jsx"]
+  },
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/dist": true,
+    "**/obj": true,
+    "**/coverage": true,
+    "**/examples": true
+  },
+  "editor.tabSize": 2,
+  "vim.handleKeys": {
+    "<C-c>": false,
+    "<C-v>": false
+  }
+}
