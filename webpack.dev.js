@@ -1,5 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 const path = require('path');
+const { EnvironmentPlugin, DefinePlugin } = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { default: merge } = require('webpack-merge');
 const common = require('./webpack.common');
@@ -14,7 +15,8 @@ module.exports = merge(common, {
   mode: 'development',
   output: {
     filename: '[name].bundle.js',
-    path: path.resolve(__dirname, 'dist')
+    path: path.resolve(__dirname, 'dist'),
+    publicPath: '/'
   },
   module: {
     rules: [
@@ -34,35 +36,32 @@ module.exports = merge(common, {
       }
     ]
   },
+  devtool: 'inline-source-map',
   plugins: [
     new HtmlWebpackPlugin({
       // alwaysWriteToDisk: true,
       template: `${PUB_DIR}/index.html`
       // favicon: `${PUB_DIR}/favicon.ico`
+    }),
+    new DefinePlugin({
+      'process.env': {
+        NODE_ENV: JSON.stringify('development')
+      }
+    }),
+    new EnvironmentPlugin({
+      NODE_ENV: 'development', // use 'development' unless process.env.NODE_ENV is defined
+      DEBUG: false
     })
   ],
+  optimization: {
+    runtimeChunk: 'single'
+  },
+  stats: 'errors-only',
   devServer: {
     host: '0.0.0.0',
     port,
-    open: true,
-    openPage: `http://localhost:${port}/`,
-    historyApiFallback: true,
-    quiet: true,
-    stats: {
-      colors: true,
-      hash: false,
-      version: false,
-      timings: false,
-      assets: false,
-      chunks: false,
-      modules: false,
-      reasons: false,
-      children: false,
-      source: false,
-      errors: true,
-      errorDetails: false,
-      warnings: true,
-      publicPath: false
-    }
+    open: [`http://localhost:${port}/`],
+    compress: true,
+    historyApiFallback: true
   }
 });

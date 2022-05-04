@@ -1,4 +1,7 @@
 const path = require('path');
+// const dotenv = require('dotenv');
+
+// const env = dotenv.config().parsed;
 
 const SRC_DIR = path.join(__dirname, 'src');
 
