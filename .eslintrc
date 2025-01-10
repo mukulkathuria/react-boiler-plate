@@ -2,9 +2,14 @@
   "parser": "@babel/eslint-parser",
   "env": {
     "es6": true,
-    "browser": true
+    "browser": true,
+    "node": true
   },
-  "extends": ["airbnb", "airbnb/hooks", "eslint:recommended"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended"
+  ],
   "settings": {
     "import/resolver": {
       "node": {
@@ -14,6 +19,8 @@
     }
   },
   "parserOptions": {
+    "ecmaVersion": 2020,
+    "sourceType": "module",
     "ecmaFeatures": {
       "jsx": true
     }
@@ -42,6 +49,7 @@
     "camelcase": "off",
     "react/jsx-curly-newline": "off",
     "no-unescaped-entities": "off",
-    "no-nested-ternary": "off"
+    "no-nested-ternary": "off",
+    "react/display-name": "off"
   }
 }
