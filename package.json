@@ -43,6 +43,7 @@
     "@svgr/webpack": "^8.1.0",
     "babel-loader": "^9.2.1",
     "clean-webpack-plugin": "^4.0.0",
+    "compression-webpack-plugin": "^11.1.0",
     "css-loader": "^7.1.2",
     "css-minimizer-webpack-plugin": "^7.0.0",
     "eslint": "^8.57.1",
@@ -59,6 +60,7 @@
     "prettier": "^3.4.2",
     "style-loader": "^4.0.0",
     "url-loader": "^4.1.1",
+    "webpack-bundle-analyzer": "^4.10.2",
     "webpack-cli": "^6.0.1",
     "webpack-merge": "^6.0.1"
   },
